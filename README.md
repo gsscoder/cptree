@@ -24,11 +24,8 @@ version used to build the test version is not the same of the test runner.
 
 Dependencies:
 ---
-This program uses Command Line Parser Library 1.8 (Stable)
-Project Home: http://commandline.codeplex.com/
-Release 1.8: http://commandline.codeplex.com/releases/view/41645
-I've also included a fragment from Banshee 1.4.1 (http://banshee.fm/)
-for set the process in *nix OS insted of 'mono'.
+  - This program uses Command Line Parser Library 1.9.2.4 (http://commandline.codeplex.com/).
+  - I've also included a fragment from Banshee 1.4.1 (http://banshee.fm/).
 
 Windows User:
 ---
