@@ -34,13 +34,12 @@ environment. (For *nix users is already installed in the GAC).
 
 Compatibility:
 ----
-  MS .NET Framework Version 2.0+
-  Mono 2.0 Profile+
+  - MS .NET Framework Version 2.0+
+  - Mono 2.0 Profile+
 
 Licence:
 ---
-  MIT License
-  http://www.opensource.org/licenses/mit-license.php
+  - [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
 Usage Examples:
 ---
@@ -57,6 +56,6 @@ Usage Examples:
 
 Comments, bugs and other:
 ---
-  [CodePlex](http://cptree.codeplex.com)
-  Giacomo Stelluti Scala
-  gsscoder AT gmail DOT com
+  - [CodePlex](http://cptree.codeplex.com)
+  - Giacomo Stelluti Scala
+  - gsscoder AT gmail DOT com
