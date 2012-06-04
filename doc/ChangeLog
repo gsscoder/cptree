@@ -1,0 +1,41 @@
+2011-07-19	Giacomo Stelluti Scala	<gsscoder@gmail.com>
+
+    ------------------------------------------------------------------------------------
+        + file added; * file modified; - file deleted; ~ file renamed; > file moved;
+        . file replaced; { group start; } group end
+    ------------------------------------------------------------------------------------
+
+    * Solution, Project Files CopyDirectoryTree.sln, CopyDirectoryTree.csproj[.user]}
+        Modified. Project format updated to MS Visual C# 2010 Express.
+		NOTE: the target framework is still .NET Framework 2.0.
+
+    . ../../lib/nunit.framework.dll
+        Replaced. Assembly replaced with the one supplied with NUnit version 2.5.10.11092.
+
+    . ../../lib/CommandLine.dll
+        Replaced. Assembly replaced with the one supplied with Command Line Parser Library version 1.8 Stable.
+
+	* {ALL .cs}
+        Modified. (Re)Applied my latest 'coding standard' to all sources. Minor refactoring.
+
+2008-12-24	Giacomo Stelluti Scala	<gsscoder@ymail.com>
+
+    * (Re)Applied my latest 'coding standard' to all sources.
+    * Used the lastest stable CommandLine.dll (Version 1.4,
+        downloadable at http://www.codeplex.com/commandline)
+    * PlatformHacks.cs
+        Merged. Set a process name differente from 'mono' in Unix OS (Linux
+        included).
+        Code imported from Banshee Media Player (http://banshee-project.org/).
+
+2008-07-28	Giacomo Stelluti Scala	<giacomo.stelluti@gmail.com>
+
+    * Switching from CommandLine.dll 1.3.0.0 to 1.3.0.7.
+    * PathUtility.cs (PathUtility)
+        Modified. Fixed a bug in GetBaseName() method.
+    * CPTreeTool.cs (CPTreeTool)
+        Modified. Added verbose directory listing, see FileSystemObjectPrinterVerbose() member.
+
+2008-04-10	Giacomo Stelluti Scala	<giacomo.stelluti@gmail.com>
+
+    * Initial Release.

@@ -1,0 +1,62 @@
+Copy Directory Tree Utility
+---------------------------------------------------------------------------------------
+Project Author/Coordinator: Giacomo Stelluti Scala
+---------------------------------------------------------------------------------------
+Version 1.1.0.2 Stable
+Latest Update: 19 Jul 2011
+
+General Info:
+This utility allows you to replicate the structure of a directory excluding files.
+Once replicated in another point, the directory tree can be compressed for backup
+(and restored anywhere).
+Some Examples:
+	- download directory
+	- personal folder
+	- directory tree used as database with xml files
+When used without a target directory, the program lists the content of given directory.
+
+More info on: http://gsscoder.blogspot.com/.
+  
+Build:
+You can build using VCS2010EE (http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-csharp-express) or
+by using NAnt (in both case only two deps are required nunit.framework.dll
+and Mono.Posix.dll - both included in lib subdirectory).
+
+Unit Tests:
+If you build under *nix/Linux OS you may have problems if the nunit.framework.dll
+version used to build the test version is not the same of the test runner.
+
+Dependencies:
+This program uses Command Line Parser Library 1.8 (Stable)
+Project Home: http://commandline.codeplex.com/
+Release 1.8: http://commandline.codeplex.com/releases/view/41645
+I've also included a fragment from Banshee 1.4.1 (http://banshee.fm/)
+for set the process in *nix OS insted of 'mono'.
+
+Windows User:
+Although Mono.Posix.dll is needed for build process you may not redistribute it in a deployment
+environment. (For *nix users is already installed in the GAC).
+
+Framework Compatibility:
+  MS .NET Framework Version 2.0+
+  Mono 2.0 Profile+
+
+Licence:
+  MIT License
+  http://www.opensource.org/licenses/mit-license.php
+
+Usage Examples:
+  Help, copyright and license info:
+    C:\> cptree --help
+  List current directory and its content:
+    C:\> cptree
+  List the specified directory:
+    C:\> cptree C:\Temp\SomeDir
+  Copy a directory tree:
+    C:\> cptree C:\Temp\MyDir C:\Temp\CopyOfMyDir
+
+Comments, bugs and other:
+  gsscoder@gmail.com
+
+Enjoy,
+  Giacomo Stelluti Scala

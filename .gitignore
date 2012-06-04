@@ -1,0 +1,9 @@
+src/app/bin/*
+src/app/obj
+*.suo
+*.userprefs
+*~
+*.pidb
+*.test-cache
+src/app/test-results/*
+*.DS_Store
