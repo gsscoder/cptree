@@ -1,3 +1,13 @@
+2012-06-05  Giacomo Stelluti Scala	<gsscoder@gmail.com>
+
+  * CopyDirectoryTree.Tests moved to external project.
+  * Using new Command Line 1.9.* features.
+
+2012-06-04  Giacomo Stelluti Scala	<gsscoder@gmail.com>
+
+   * Repository moved to GitHub.
+   * Dependency of Command Line Parser Library resolved including sources of 1.9.2.4.
+
 2011-07-19	Giacomo Stelluti Scala	<gsscoder@gmail.com>
 
     ------------------------------------------------------------------------------------

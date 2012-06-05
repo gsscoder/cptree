@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyDirectoryTree", "src\app\CopyDirectoryTree.csproj", "{A84D2A81-056F-430E-BA60-BF7B539CD41C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyDirectoryTree.Tests", "src\tests\CopyDirectoryTree.Tests.csproj", "{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,12 +12,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}.DebugTests|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}.DebugTests|Any CPU.Build.0 = Debug|Any CPU
+		{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D6984F-A1F9-4BCD-8C11-7783CB7F2EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A84D2A81-056F-430E-BA60-BF7B539CD41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A84D2A81-056F-430E-BA60-BF7B539CD41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A84D2A81-056F-430E-BA60-BF7B539CD41C}.DebugTests|Any CPU.ActiveCfg = DebugTests|Any CPU
 		{A84D2A81-056F-430E-BA60-BF7B539CD41C}.DebugTests|Any CPU.Build.0 = DebugTests|Any CPU
 		{A84D2A81-056F-430E-BA60-BF7B539CD41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A84D2A81-056F-430E-BA60-BF7B539CD41C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = src\app\CopyDirectoryTree.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

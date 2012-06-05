@@ -33,7 +33,7 @@ using System.IO;
 namespace CopyDirectoryTree
 {
 
-    sealed class DirectoryIterator
+    public sealed class DirectoryIterator
     {
         #region Delegate with Arguments
         public sealed class Args

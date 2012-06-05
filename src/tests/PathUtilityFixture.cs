@@ -1,6 +1,6 @@
 #region License
 //
-// Copy Directory Tree: PathUtility.cs
+// Copy Directory Tree: Program.cs
 //
 // Author:
 //   Giacomo Stelluti Scala (gsscoder@gmail.com)
@@ -26,25 +26,27 @@
 // THE SOFTWARE.
 #endregion
 #region Using Directives
-using System.Globalization;
+using System;
 using System.IO;
+using NUnit.Framework;
 #endregion
 
-namespace CopyDirectoryTree
+namespace CopyDirectoryTree.Tests
 {
-    public static class PathUtility
+    [TestFixture]
+    public sealed class PathUtilityFixture
     {
-        public static readonly string DirectorySeparatorString = Path.DirectorySeparatorChar.ToString(CultureInfo.InvariantCulture);
-
-        public static string GetBaseName(string absolutePath, string path)
+        [Test]
+        public void GetBaseNameOfAPath()
         {
-            string baseName = path.Remove(0, absolutePath.Length);
-            if (baseName.StartsWith(PathUtility.DirectorySeparatorString))
-            {
-                baseName = baseName.Remove(0, 1);
-            }
-            return baseName;
-        }
+            string path = Environment.CurrentDirectory;
+            Console.WriteLine("Path: {0}", path);
 
+            string itemOfPath = Path.Combine(path, "FakeDirectory");
+            Console.WriteLine("Path's Item: {0}", itemOfPath);
+
+            string baseName = PathUtility.GetBaseName(path, itemOfPath);
+            Console.WriteLine("Base Name: {0}", baseName);
+        }
     }
 }

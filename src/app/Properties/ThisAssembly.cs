@@ -30,7 +30,7 @@ static class ThisAssembly
 {
     internal const string Name = "cptree";
     internal const string Title = "cptree.exe";
-    internal const string Copyright = "Copyright (C) 2008 - 2011 Giacomo Stelluti Scala";
+    internal const string Copyright = "Copyright (C) 2008 - 2012 Giacomo Stelluti Scala";
     internal const string Version = "1.1.0.3"; //beta
     internal const string InformationalVersion = "1.1.0.3";
     internal const string MajorMinorVersion = "1.1";

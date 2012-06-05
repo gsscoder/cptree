@@ -1,6 +1,6 @@
 #region License
 //
-// Copy Directory Tree: Program.cs
+// Copy Directory Tree: CPTreeTool.cs
 //
 // Author:
 //   Giacomo Stelluti Scala (gsscoder@gmail.com)
@@ -46,10 +46,10 @@ namespace CopyDirectoryTree
         #endregion
         internal static HeadingInfo Heading = new HeadingInfo(ThisAssembly.Name, ThisAssembly.MajorMinorVersion);
 
-        sealed class Options
+        sealed class Options : CommandLineOptionsBase
         {
-            private const int sourcePathIndex = 0;
-            private const int targetPathIndex = 1;
+            const int _sourcePathIndex = 0;
+            const int _targetPathIndex = 1;
 
             [ValueList(typeof(List<string>))]
             public IList<string> Paths { get; set; }
@@ -65,7 +65,7 @@ namespace CopyDirectoryTree
                 {
                     if (this.Paths.Count > 0)
                     {
-                        return this.Paths[sourcePathIndex];
+                        return this.Paths[_sourcePathIndex];
                     }
                     else
                     {
@@ -80,7 +80,7 @@ namespace CopyDirectoryTree
                 {
                     if (this.Paths.Count > 1)
                     {
-                        return this.Paths[targetPathIndex];
+                        return this.Paths[_targetPathIndex];
                     }
                     else
                     {
@@ -91,6 +91,13 @@ namespace CopyDirectoryTree
             #endregion
 
             [HelpOption]
+            public string GetUsage()
+            {
+                return HelpText.AutoBuild(this,
+                    (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+            }
+
+            /*[HelpOption]
             public string GetUsage()
             {
                 HelpText info = new HelpText(CPTreeTool.Heading);
@@ -104,7 +111,7 @@ namespace CopyDirectoryTree
                 info.AddPreOptionsLine("       cptree [OPTION]... SOURCE-DIR TARGET-DIR");
                 info.AddOptions(this);
                 return info;
-            }
+            }*/
 
             #region Extra validation stuff
             public bool Validate()
@@ -141,7 +148,7 @@ namespace CopyDirectoryTree
             #endregion
         }
 
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             PlatformHacks.TrySetProcessName(ThisAssembly.Name);
 
@@ -194,7 +201,7 @@ namespace CopyDirectoryTree
             Environment.Exit(success ? EXIT_SUCCESS : EXIT_FAILURE_CRITICAL);
         }
 
-        private static bool ExecuteIterator(Options options, DirectoryIterator.Delegate callback, bool processFiles)
+        static bool ExecuteIterator(Options options, DirectoryIterator.Delegate callback, bool processFiles)
         {
             bool hasError = false;
             DirectoryIterator dirIter = new DirectoryIterator(options.SourcePath);
@@ -208,7 +215,7 @@ namespace CopyDirectoryTree
             return hasError;
         }
 
-        private static void FileSystemObjectPrinter(DirectoryIterator sender, DirectoryIterator.Args args)
+        static void FileSystemObjectPrinter(DirectoryIterator sender, DirectoryIterator.Args args)
         {
             string fsoName = PathUtility.GetBaseName(sender.Path, args.Path);
             if (args.IsDirectory)
@@ -225,7 +232,7 @@ namespace CopyDirectoryTree
             }
         }
 
-        private static void FileSystemObjectPrinterVerbose(DirectoryIterator sender, DirectoryIterator.Args args)
+        static void FileSystemObjectPrinterVerbose(DirectoryIterator sender, DirectoryIterator.Args args)
         {
             //[d/-][a/-][r/-][h/-][s/-]
             StringBuilder builder = new StringBuilder();
@@ -273,7 +280,7 @@ namespace CopyDirectoryTree
             Console.ResetColor();
         }
 
-        private static void DirectoryBuilder(DirectoryIterator sender, DirectoryIterator.Args args)
+        static void DirectoryBuilder(DirectoryIterator sender, DirectoryIterator.Args args)
         {
             Options options = (Options)sender.Tag;
             string dirName = PathUtility.GetBaseName(sender.Path, args.Path);
@@ -285,7 +292,7 @@ namespace CopyDirectoryTree
             }
         }
 
-        private static void ReportError(string message)
+        static void ReportError(string message)
         {
             StringBuilder builder = new StringBuilder(message.Length * 2);
             builder.Append(ThisAssembly.Name);
@@ -294,7 +301,7 @@ namespace CopyDirectoryTree
             Console.Error.WriteLine(builder.ToString());
         }
 
-        private static void ReportIterateError(DirectoryIterator dirIter)
+        static void ReportIterateError(DirectoryIterator dirIter)
         {
             Exception ex = dirIter.LastException;
             if (ex != null)

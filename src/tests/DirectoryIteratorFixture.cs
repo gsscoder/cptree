@@ -1,6 +1,6 @@
 #region License
 //
-// Copy Directory Tree: PathUtility.cs
+// Copy Directory Tree: DirectoryIteratorFixture.cs
 //
 // Author:
 //   Giacomo Stelluti Scala (gsscoder@gmail.com)
@@ -26,25 +26,51 @@
 // THE SOFTWARE.
 #endregion
 #region Using Directives
-using System.Globalization;
-using System.IO;
+using System;
+using CopyDirectoryTree;
+using NUnit.Framework;
 #endregion
 
-namespace CopyDirectoryTree
+namespace CopyDirectoryTree.Tests
 {
-    public static class PathUtility
+    [TestFixture]
+    public sealed class DirectoryIteratorFixture
     {
-        public static readonly string DirectorySeparatorString = Path.DirectorySeparatorChar.ToString(CultureInfo.InvariantCulture);
+        private static string _testPath;
 
-        public static string GetBaseName(string absolutePath, string path)
+        [SetUp]
+        public void PrepareFileSystem()
         {
-            string baseName = path.Remove(0, absolutePath.Length);
-            if (baseName.StartsWith(PathUtility.DirectorySeparatorString))
-            {
-                baseName = baseName.Remove(0, 1);
-            }
-            return baseName;
+            _testPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         }
 
+        [Test]
+        public void IterateDirsToConsole()
+        {
+            DirectoryIterator dirIter = new DirectoryIterator(_testPath);
+            dirIter.Iterate(delegate(DirectoryIterator sender, DirectoryIterator.Args args) { Console.WriteLine(args.Path); });
+        }
+
+        [Test]
+        public void IterateAllToConsole()
+        {
+            DirectoryIterator dirIter = new DirectoryIterator(_testPath);
+            dirIter.ProcessFiles = true;
+            dirIter.Iterate(new DirectoryIterator.Delegate(PrintDirsAndFiles));
+        }
+
+        private static void PrintDirsAndFiles(DirectoryIterator sender, DirectoryIterator.Args args)
+        {
+            string text;
+            if (args.IsDirectory)
+            {
+                text = "DIR: {0}";
+            }
+            else
+            {
+                text = "FILE: {0}";
+            }
+            Console.WriteLine(text, args.Path);
+        }
     }
 }

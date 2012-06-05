@@ -1,6 +1,6 @@
 ﻿#region License
 //
-// Copy Directory Tree: DirectoryIteratorFixture.cs
+// Copy Directory Tree: AssemblyInfo.cs
 //
 // Author:
 //   Giacomo Stelluti Scala (gsscoder@gmail.com)
@@ -31,6 +31,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Resources;
+using CommandLine.Text;
 
 [assembly: AssemblyTitle(ThisAssembly.Title)]
 [assembly: AssemblyProduct("Copy Directory Tree Utility")]
@@ -40,6 +41,15 @@ using System.Resources;
 [assembly: AssemblyInformationalVersion(ThisAssembly.InformationalVersion)]
 [assembly: NeutralResourcesLanguage("en-US")]
 [assembly: AssemblyCulture("")]
+[assembly: InternalsVisibleTo("CopyDirectoryTree.Tests")]
+[assembly: AssemblyLicense(
+    "This is free software. You may redistribute copies of it under the terms of",
+    "the MIT License <http://www.opensource.org/licenses/mit-license.php>.",
+    "  - Uses Command Line Parser Library, Version 1.9.2.4 (http://commandline.codeplex.com/).",
+    "  - Includes a code fragment from Banshee, Version 1.4.1 (http://banshee-project.org/).")]
+[assembly: AssemblyUsage(
+    "Usage: cptree [OPTION]... DIR-TO-LIST",
+    "       cptree [OPTION]... SOURCE-DIR TARGET-DIR")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
