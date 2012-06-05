@@ -1,5 +1,7 @@
 src/app/bin/*
 src/app/obj
+src/tests/bin/*
+src/tests/obj
 *.suo
 *.userprefs
 *~
